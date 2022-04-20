@@ -2,34 +2,42 @@ import numpy as np
 
 a = np.arange(1, 17).reshape(4, 4)
 print(a)
-
-
 print("\n")
 x = input("Please choose a number :")
-  
-if int(x) in range(1,5):
-  z=0
-  y=0
-  q= range(1,5)
-elif int(x) in range(5,9):
-  z=1
-  y=0
-  q=range(5,9)
-elif int(x) in range(9,13):
-  z=2
-  y=0
-  q=range(9,13)
+    
+mtrx_row = len(a)
+mtrx_col = len(a[0])
+
+for n in range(mtrx_row):
+  for m in range(mtrx_col):
+    if(a[n][m] == int(x)):
+      found_row =n+1
+      found_col =m+1
+
+if ((found_row ==1) and (found_col in range(1,5))):
+    z=0
+    y=0
+    q= range(1,5)
+
+elif ((found_row ==2) and (found_col in range(1,5))):
+    z=1
+    y=0
+    q= range(1,5)
+
+elif ((found_row ==3) and (found_col in range(1,5))):
+    z=2
+    y=0
+    q= range(1,5)
 else:
   z=3
   y=0
-  q=range(13,17)
-  
+  q=range(1,5)
+     
 for i in q:
-  if i==int(x):
+  if i==found_col:
     r_ow = np.delete(a, z, 0)
     c_ol = np.delete(r_ow, y, 1)
     print(c_ol)
-      
   y=y+1
 
 x = input("Please choose a number :")
