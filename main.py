@@ -1,4 +1,5 @@
 import numpy as np
+from colorama import Fore, Style
 
 def New_Matrix(First_Matrix,x):
   length_row = len(First_Matrix)
@@ -45,25 +46,36 @@ def New_Matrix(First_Matrix,x):
 
 def intro(Main_matrix):
 
-  choice = input("Please choose a valid number :")
+  choice = input("\nPlease choose a valid number from above : ")
   while (True):
     if choice.strip().isdigit() and (int(choice) in Main_matrix):
       First_matrix = New_Matrix(Main_matrix,choice)
       return First_matrix
     else:
-      print("sorry not a valid option.")
-    choice = input("Please choose a valid number :")
+      print("\nsorry not a valid option. Try again !\n")
+      print(Main_matrix)
+    choice = input("\nPlease choose a valid number from above : ")
         
   
 
 def main():
+
+
+
   print("Hello , Lets play a Game.\n")
-  print("Rules : \n 1) Below is a 4×4 Grid Prediction. pick a number.")
+  
+  print(Fore.GREEN +"--> First, remember number 34. <--")
+  print(Style.RESET_ALL)
+  
+  print(Fore.BLUE +"Rules : \n 1) Below is a 4×4 Grid Prediction. pick a number.")
   print(" 2) However, your next number should not be in the same row and column of last number picked. ")
   print(" 3) Again, your next number should be in a different row and different column from the previous two numbers. \n ")
+  print(Style.RESET_ALL)
+
+
+  
   Main_matrix = np.arange(1, 17).reshape(4, 4)
   print(Main_matrix)
-  print("\n")
   
   First_step= intro(Main_matrix)
   print(First_step)
@@ -73,6 +85,11 @@ def main():
   
   Third_step = intro(Second_step)
   print(Third_step)
+
+  print(Fore.BLUE +"\nFinally, Add all your inputs, including the last remaining number in the matrix." )
+  print("\nNow, compare that number to the number I told you to remember at the beginning of this game." )
+  print("Thank You!")
+  print(Style.RESET_ALL)
 
 
 if __name__=="__main__":
