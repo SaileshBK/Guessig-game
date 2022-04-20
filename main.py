@@ -1,6 +1,5 @@
 import numpy as np
 
-
 def New_Matrix(First_Matrix,x):
   length_row = len(First_Matrix)
   length_col = len(First_Matrix[0])
@@ -42,19 +41,38 @@ def New_Matrix(First_Matrix,x):
     y=y+1
 
   return New_Matrix
+
+
+def intro(Main_matrix):
+
+  choice = input("Please choose a valid number :")
+  while (True):
+    if choice.strip().isdigit() and (int(choice) in Main_matrix):
+      First_matrix = New_Matrix(Main_matrix,choice)
+      return First_matrix
+    else:
+      print("sorry not a valid option.")
+    choice = input("Please choose a valid number :")
+        
   
 
 def main():
+  print("Hello , Lets play a Game.\n")
+  print("Rules : \n 1) Below is a 4×4 Grid Prediction. pick a number.")
+  print(" 2) However, your next number should not be in the same row and column of last number picked. ")
+  print(" 3) Again, your next number should be in a different row and different column from the previous two numbers. \n ")
   Main_matrix = np.arange(1, 17).reshape(4, 4)
   print(Main_matrix)
   print("\n")
   
-  for i in range(3):
-    x = input("Please choose a number :")
-    First_matrix = New_Matrix(Main_matrix,x)
-    print(First_matrix)
-    Main_matrix = First_matrix
-    
+  First_step= intro(Main_matrix)
+  print(First_step)
+  
+  Second_step = intro(First_step)
+  print(Second_step)
+  
+  Third_step = intro(Second_step)
+  print(Third_step)
 
 
 if __name__=="__main__":
