@@ -1,5 +1,5 @@
 # Guessig-game
-A simple python A 4×4 Grid Prediction Math Trick.
+A simple python 4×4 Grid Prediction Math Trick.
 
 Note: Each number you picked should be in different row and column.
 
